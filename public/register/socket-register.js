@@ -1,7 +1,7 @@
 const socket = io();    
 
 export default function emitUserRegister (data){
-
+    window.location.href = "/login/index.html";
     socket.emit("register_user", data)
 }
 
