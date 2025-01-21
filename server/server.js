@@ -6,7 +6,7 @@ import { Server } from "socket.io";
 import "./db/dbConnect.js"
 
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.port || 10000;
 
 const actualPath = url.fileURLToPath(import.meta.url);
 const publicDirectory = path.join(actualPath, "../..", "public");
