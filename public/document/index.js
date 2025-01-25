@@ -121,25 +121,26 @@ document.addEventListener("input", function (e) {
         const idParts = parentDiv.id.split("-");
         const skillName = idParts[0]; // e.g., "qweqwe" from "qweqwe-timer"
         let property;
+        console.log(skillName)
         let damageTotalId = document.getElementById(`${skillName}-damage-total-textarea`)
-        let damageTotal = document.querySelector(`#${skillName}-damage-total textarea`).value
-        let timer =  document.querySelector(`#${skillName}-timer textarea`).value
-        
+        let damageTotal = document.querySelector(`#${skillName}-damage-total textarea`)
+        let timer =  document.querySelector(`#${skillName}-timer textarea`)
+    
         let damageTaken = handleDamageReduction(damageTotalId)
         // Dynamically update the database
-
+        console.log(skillName, damageTotal)
         property = idParts[1] === "timer" ?
             emitRowsValue({
                 documentName,
                 skillNameInput: skillName,
                 timer: newValue,
-                damagetotal: damageTotal,
+                damagetotal: damageTotal.value,
                 damagetaken: damageTaken
             }) :
             (emitRowsValue({
                 documentName,
                 skillNameInput: skillName,
-                timer: timer,
+                timer: timer.value,
                 damagetotal: newValue,
                 damagetaken: damageTaken
             })
