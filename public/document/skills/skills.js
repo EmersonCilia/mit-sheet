@@ -16,15 +16,22 @@ export default function handleDamageReduction(event) {
     }
 
     const idParts = target.id.split("-");
-    const skillName = idParts[1] || idParts[0]; // Skill name from the ID
+    // Get the skill name based on the type of input
+    let skillName;
 
+    // Determine the damageTaken element based on the type of input
+    if (target.type === "checkbox") {
+        damageTaken = document.getElementById(`${idParts[1]}-damage-taken`);
+        skillName = idParts[1];
+    } else if (target.type === "textarea") {
+        damageTaken = document.getElementById(`${idParts[0]}-damage-taken`);
+        skillName = idParts[0];
+    }
     // Scope mitigation checks to the current row
     const currentRow = target.closest(".row");
 
     // Get the damage total for this skill
-    const damagetotalSkill = parseFloat(
-        currentRow.querySelector(`#${skillName}-damage-total textarea`).value
-    );
+    const damagetotalSkill = currentRow.querySelector(`#${skillName}-damage-total-textarea`);
 
     const damageTypeSelect = currentRow.querySelector(`#${skillName}-type select`);
     const damageType = damageTypeSelect ? damageTypeSelect.value : null;
@@ -37,7 +44,7 @@ export default function handleDamageReduction(event) {
         "Addle", "Feint", "Aquaveil", "Temperance"
     ];
 
-    let adjustedDamage = damagetotalSkill;
+    let adjustedDamage = parseFloat(damagetotalSkill.value);
 
     // Check each mitigation for this row
     mitigations.forEach((mitigationName) => {
