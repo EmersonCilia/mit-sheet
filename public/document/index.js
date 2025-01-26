@@ -122,8 +122,7 @@ document.addEventListener("input", function (e) {
         const skillName = idParts[0]; // e.g., "qweqwe" from "qweqwe-timer"
         let property;
         console.log(skillName)
-        let damageTotalId = document.getElementById(`${skillName}-damage-total-textarea`)
-        let damageTotal = document.querySelector(`#${skillName}-damage-total textarea`)
+        let damageTotal = document.getElementById(`${skillName}-damage-total-textarea`)
         let timer =  document.querySelector(`#${skillName}-timer textarea`)
     
         let damageTaken = handleDamageReduction(damageTotalId)
