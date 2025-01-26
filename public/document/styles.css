@@ -1,78 +1,101 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
-    justify-content: center;  
+    justify-content: center;
     align-items: center;
 }
-.container-skills{
+
+.container-skills {
     max-width: 100vw;
 }
-#container-spreadsheet{
+
+#container-spreadsheet {
     width: 85vw;
-    overflow-x: auto; /* Enables horizontal scrolling if needed */
+    overflow-x: auto;
+    /* Enables horizontal scrolling if needed */
     overflow-y: hidden;
 }
-.row-container{
+
+.row-container {
     display: flex;
-    flex-wrap: nowrap; /* Prevents wrapping */
+    flex-wrap: nowrap;
+    /* Prevents wrapping */
     height: 60px;
     padding: 0;
 }
 
 .sticky-left .row {
-    display: flex; /* Ensures all columns stay in a row */
-    flex-wrap: nowrap; /* Prevent wrapping */
+    display: flex;
+    /* Ensures all columns stay in a row */
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
 }
-.skills{
+
+.skills {
     display: flex;
     align-items: center;
-    flex-direction: row;    
+    flex-direction: row;
 }
+
 .sticky-left {
     position: sticky;
     left: 0;
-    background-color: solid; /* Ensure it stays visible */
-    z-index: 1; /* Keep it above other content */
-    min-width: 700px; /* Prevents it from shrinking too much */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for separation */
+    background-color: solid;
+    /* Ensure it stays visible */
+    z-index: 1;
+    /* Keep it above other content */
+    min-width: 700px;
+    /* Prevents it from shrinking too much */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    /* Adds a subtle shadow for separation */
 }
-.form-check-label{
-    margin-top:12px
+
+.form-check-label {
+    margin-top: 12px
 }
+
 .border {
-    padding: 5px; /* Optional, for better readability */
-    text-align: center; /* Center-align the content */
-    white-space: nowrap; /* Prevents text from wrapping */
+    padding: 5px;
+    /* Optional, for better readability */
+    text-align: center;
+    /* Center-align the content */
+    white-space: nowrap;
+    /* Prevents text from wrapping */
 }
-.spreadsheet-box{
+
+.spreadsheet-box {
     height: 100%;
 }
-.btn-footer{
+
+.btn-footer {
     width: 1200px;
     gap: 20px;
     margin-left: 100px;
     max-height: 40px;
 }
 
-img{
+img {
     height: 30px;
     margin: 4px;
 }
 
-.playername{
+.playername {
     width: 50px;
     justify-self: center;
 }
 
-.boss-info{
+.boss-info {
     width: 128px;
     background-color: white;
+    word-wrap: break-word; /* Force text to break inside the box */
+    overflow-wrap: break-word; /* Ensure compatibility with modern browsers */
+    white-space: normal; /* Allow the text to wrap to the next line */
 }
 
 textarea {
@@ -82,20 +105,20 @@ textarea {
     overflow: hidden;
 }
 
-.connected-users{
+.connected-users {
     margin-left: 10%;
     margin-right: auto
 }
 
-select{
+select {
     margin-top: 19px;
     width: 100px;
 }
 
-.checkbox-div{
-    width: 30px;        
-    height: 30px;       
-    cursor: pointer;    
+.checkbox-div {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
     margin: 16px 5.9px 0px 5.9px;
     box-shadow: 0 0 0 0px;
     display: flex;
@@ -103,29 +126,40 @@ select{
     align-items: center;
 }
 
-.checkbox-div > input[type="checkbox"] {
-    width: 20px;        
-    height: 20px;       
+.checkbox-div>input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     box-shadow: 0 0 0 0px;
     align-self: center;
 }
 
-.checkbox-div > [type="checkbox"]:checked{
-    width: 20px;        
-    height: 20px;       
+.checkbox-div>[type="checkbox"]:checked {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     box-shadow: 0 0 0 0px;
-    align-self: center;   
+    align-self: center;
 }
 
-.trash-can{
+.trash-can {
     background-color: white;
     margin: 0;
     width: 60px;
     height: 60px;
     border: none;
 }
+
 .checkbox-div:has(input[type="checkbox"]:checked) {
     background-color: green;
+}
+
+body[data-bs-theme="dark"] .boss-info {
+    background-color: #212529;
+    color: #fff;
+}
+
+body[data-bs-theme="dark"] .trash-can {
+    background-color: #212529;
+    color: #fff;
 }
