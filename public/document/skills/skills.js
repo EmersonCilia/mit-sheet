@@ -48,7 +48,9 @@ export default function handleDamageReduction(event) {
     // Check each mitigation for this row
     mitigations.forEach((mitigationName) => {
         const mitigationCheckbox = currentRow.querySelector(`[id$="-${mitigationName}"][type="checkbox"]`);
-        if ((mitigationCheckbox && mitigationCheckbox.checked) || target.tagName === "TEXTAREA") {
+        const targetCheckbox = target.closest(".row-container").querySelector(`[id$="-${mitigationName}"][type="checkbox"]`);
+
+        if ((mitigationCheckbox && mitigationCheckbox.checked) || (target.tagName === "TEXTAREA" && targetCheckbox.checked)) {
             switch (mitigationName) {
                 case "Reprisal":
                     adjustedDamage *= 0.9;
@@ -107,7 +109,7 @@ export default function handleDamageReduction(event) {
         }
     });
 
-    if(target.tagName === "TEXTAREA"){
+    if (target.tagName === "TEXTAREA") {
         adjustedDamage *= 10;
     }
 
