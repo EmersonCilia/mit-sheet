@@ -50,7 +50,7 @@ export default function handleDamageReduction(event) {
         const mitigationCheckbox = currentRow.querySelector(`[id$="-${mitigationName}"][type="checkbox"]`);
         const targetCheckbox = target.closest(".row-container").querySelector(`[id$="-${mitigationName}"][type="checkbox"]`);
 
-        if ((mitigationCheckbox && mitigationCheckbox.checked) || (target.tagName === "TEXTAREA" && targetCheckbox.checked)) {
+        if (mitigationCheckbox && mitigationCheckbox.checked) {
             switch (mitigationName) {
                 case "Reprisal":
                     adjustedDamage *= 0.9;
