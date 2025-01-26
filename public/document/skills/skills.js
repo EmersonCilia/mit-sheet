@@ -31,9 +31,9 @@ export default function handleDamageReduction(event) {
     const currentRow = target.closest(".row");
 
     // Get the damage total for this skill
-    const damagetotalSkill = currentRow.querySelector(`#${skillName}-damage-total-textarea`);
+    const damagetotalSkill = document.getElementById(`${skillName}-damage-total-textarea`);
 
-    const damageTypeSelect = currentRow.querySelector(`#${skillName}-type select`);
+    const damageTypeSelect = document.getElementById(`${skillName}-type-select`);
     const damageType = damageTypeSelect ? damageTypeSelect.value : null;
 
     // List of mitigations to check (scoped to the current row)
@@ -109,7 +109,7 @@ export default function handleDamageReduction(event) {
     });
 
     // Update the damage taken for this row
-    damageTaken = currentRow.querySelector(`#${skillName}-damage-taken`);
+    damageTaken = document.getElementById(`${skillName}-damage-taken`);
     damageTaken.innerHTML = adjustedDamage;
 
     return !isNaN(adjustedDamage) ? adjustedDamage : "";
