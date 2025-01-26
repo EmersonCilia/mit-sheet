@@ -132,14 +132,14 @@ document.addEventListener("input", function (e) {
                 skillNameInput: skillName,
                 timer: newValue,
                 damagetotal: damageTotal.value,
-                damagetaken: damageTaken
+                damagetaken: damageTaken.toFixed(1)
             }) :
             (emitRowsValue({
                 documentName,
                 skillNameInput: skillName,
                 timer: timer.value,
                 damagetotal: newValue,
-                damagetaken: damageTaken
+                damagetaken: damageTaken.toFixed(1)
             })
         )
     }
