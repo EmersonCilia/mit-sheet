@@ -109,10 +109,6 @@ export default function handleDamageReduction(event) {
         }
     });
 
-    if (target.tagName === "TEXTAREA") {
-        adjustedDamage *= 10;
-    }
-
     // Update the damage taken for this row
     damageTaken = document.getElementById(`${skillName}-damage-taken`);
     damageTaken.innerHTML = adjustedDamage.toFixed(1);
