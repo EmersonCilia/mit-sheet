@@ -98,7 +98,7 @@ function rowCreation(skillName, skillNameArray, newRow) {
                     <div class="col border boss-info" id="${skillName}-damage-total"><textarea id="${skillName}-damage-total-textarea" maxlength="22">${skillNameArray.damagetotal}</textarea></div>
                     <div class="col border boss-info" id="${skillName}-damage-taken">${skillNameArray.damagetaken}</div>
                     <div class="col border boss-info" id="${skillName}-type">
-                        <select>
+                        <select id="${skillName}-type-select">
                             <option value="magical" ${skillNameArray.type === "magical" ? "selected" : ""}>Magical</option>
                             <option value="physical" ${skillNameArray.type === "physical" ? "selected" : ""}>Physical</option>
                         </select> 
@@ -117,7 +117,7 @@ function rowCreation(skillName, skillNameArray, newRow) {
                     <div class="col border boss-info" id="${skillName}-damage-total"><textarea id="${skillName}-damage-total-textarea" maxlength="22"></textarea></div>
                     <div class="col border boss-info" id="${skillName}-damage-taken"></div>
                     <div class="col border boss-info" id="${skillName}-type">
-                       <select>
+                       <select id="${skillName}-type-select">
                             <option value="magical" selected>Magical</option>
                             <option value="physical">Physical</option>
                         </select>
