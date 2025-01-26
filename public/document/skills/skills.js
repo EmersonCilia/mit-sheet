@@ -45,11 +45,10 @@ export default function handleDamageReduction(event) {
     ];
 
     let adjustedDamage = parseFloat(damagetotalSkill.value);
-
     // Check each mitigation for this row
     mitigations.forEach((mitigationName) => {
         const mitigationCheckbox = currentRow.querySelector(`[id$="-${mitigationName}"][type="checkbox"]`);
-        if (mitigationCheckbox && mitigationCheckbox.checked) {
+        if ((mitigationCheckbox && mitigationCheckbox.checked) || target.tagName === "TEXTAREA") {
             switch (mitigationName) {
                 case "Reprisal":
                     adjustedDamage *= 0.9;
@@ -107,6 +106,10 @@ export default function handleDamageReduction(event) {
             }
         }
     });
+
+    if(target.tagName === "TEXTAREA"){
+        adjustedDamage *= 10;
+    }
 
     // Update the damage taken for this row
     damageTaken = document.getElementById(`${skillName}-damage-taken`);
