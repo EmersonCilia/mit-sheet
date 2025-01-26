@@ -35,7 +35,7 @@ export default function eventRegisterDocument(socket, io) {
         socket.on("text_editor", async ({ documentName, skillNameInput, timer, damagetotal, damagetaken }) => {
             timer === null ? timer = "" : timer = timer;
             damagetotal === null ? damagetotal = "" : damagetotal = damagetotal; //if timer or damagetotal is null saves as empty string
-            damagetaken === null || NaN  ? damagetaken = "" : damagetaken = damagetaken;
+            damagetaken === null || NaN  ? damagetaken = "" : damagetaken = damagetaken.toFixed(1);
             const update = await updateDocument(documentName, {
                 [`${skillNameInput}.skillname`]:skillNameInput,
                 [`${skillNameInput}.timer`]:timer,
@@ -50,7 +50,7 @@ export default function eventRegisterDocument(socket, io) {
         });
         socket.on("checkbox_editor", async (checkbox, skillNameInput, checked, damagetaken) => {
             // Construct the dynamic path for the checkbox
-            damagetaken === null || NaN ? damagetaken = "" : damagetaken = damagetaken;
+            damagetaken === null || NaN ? damagetaken = "" : damagetaken = damagetaken.toFixed(1);
 
             // Use $set to update only the specific checkbox's value
             const updateValue = checked ? true : false;  // Set to true or false based on the checked state
