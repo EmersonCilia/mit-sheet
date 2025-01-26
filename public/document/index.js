@@ -123,9 +123,9 @@ document.addEventListener("input", function (e) {
         let property;
         console.log(skillName)
         let damageTotal = document.getElementById(`${skillName}-damage-total-textarea`)
-        let timer =  document.querySelector(`#${skillName}-timer textarea`)
+        let timer =  document.getElementById(`${skillName}-timer-textarea`)
     
-        let damageTaken = handleDamageReduction(damageTotalId)
+        let damageTaken = handleDamageReduction(damageTotal)
         // Dynamically update the database
         console.log(skillName, damageTotal)
         property = idParts[1] === "timer" ?
