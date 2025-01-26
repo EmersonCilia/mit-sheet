@@ -43,71 +43,78 @@ export default function handleDamageReduction(event) {
         "Dark_Missionary", "Shield_Samba", "Fey_Illumination_sch", "Sacred_Soil", "Expedient",
         "Addle", "Feint", "Aquaveil", "Temperance"
     ];
+    const players = [
+        'Dan', 'Carmen', 'Cilia', 'Zedd', 'Ruh', 'Rah', 'Skye', 'Jorgen'
+    ]
 
     let adjustedDamage = parseFloat(damagetotalSkill.value);
     // Check each mitigation for this row
-    mitigations.forEach((mitigationName) => {
-        const mitigationCheckbox = currentRow.querySelector(`[id$="-${mitigationName}"][type="checkbox"]`);
-        const targetCheckbox = target.closest(".row-container").querySelector(`[id$="-${mitigationName}"][type="checkbox"]`);
 
-        if (mitigationCheckbox && mitigationCheckbox.checked) {
-            switch (mitigationName) {
-                case "Reprisal":
-                    adjustedDamage *= 0.9;
-                    break;
-                case "Rampart":
-                    adjustedDamage *= 0.8;
-                    break;
-                case "Heart_of_Corundum":
-                    adjustedDamage *= 0.85;
-                    break;
-                case "Great_Nebula":
-                    adjustedDamage *= 0.6;
-                    break;
-                case "Heart_of_Light":
-                    adjustedDamage *= damageType === "magical" ? 0.9 : 0.95;
-                    break;
-                case "Camouflage":
-                    adjustedDamage *= 0.85;
-                    break;
-                case "Dark_Mind":
-                    adjustedDamage *= damageType === "magical" ? 0.8 : 0.9;
-                    break;
-                case "Shadowed_Vigil":
-                    adjustedDamage *= 0.6;
-                    break;
-                case "Dark_Missionary":
-                    adjustedDamage *= damageType === "magical" ? 0.9 : 0.95;
-                    break;
-                case "Shield_Samba":
-                    adjustedDamage *= 0.85;
-                    break;
-                case "Fey_Illumination_sch":
-                    adjustedDamage *= 0.95;
-                    break;
-                case "Sacred_Soil":
-                    adjustedDamage *= 0.9;
-                    break;
-                case "Expedient":
-                    adjustedDamage *= 0.9;
-                    break;
-                case "Addle":
-                    adjustedDamage *= damageType === "magical" ? 0.9 : 0.95;
-                    break;
-                case "Feint":
-                    adjustedDamage *= damageType === "magical" ? 0.95 : 0.9;
-                    break;
-                case "Aquaveil":
-                    adjustedDamage *= 0.9;
-                    break;
-                case "Temperance":
-                    adjustedDamage *= 0.9;
-                    break;
-                default:
-                    break;
+    players.forEach((playerName) => {
+        mitigations.forEach((mitigationName) => {
+            const mitigationCheckbox = currentRow.querySelector(`[id$="${playerName}-${mitigationName}"][type="checkbox"]`);
+            const targetCheckbox = target.closest(".row-container").querySelector(`[id$="${playerName}-${mitigationName}"][type="checkbox"]`);
+
+            if ((mitigationCheckbox && mitigationCheckbox.checked) ||
+                (targetCheckbox && target.tagName === "TEXTAREA" && targetCheckbox.checked)) {
+                switch (mitigationName) {
+                    case "Reprisal":
+                        adjustedDamage *= 0.9;
+                        break;
+                    case "Rampart":
+                        adjustedDamage *= 0.8;
+                        break;
+                    case "Heart_of_Corundum":
+                        adjustedDamage *= 0.85;
+                        break;
+                    case "Great_Nebula":
+                        adjustedDamage *= 0.6;
+                        break;
+                    case "Heart_of_Light":
+                        adjustedDamage *= damageType === "magical" ? 0.9 : 0.95;
+                        break;
+                    case "Camouflage":
+                        adjustedDamage *= 0.85;
+                        break;
+                    case "Dark_Mind":
+                        adjustedDamage *= damageType === "magical" ? 0.8 : 0.9;
+                        break;
+                    case "Shadowed_Vigil":
+                        adjustedDamage *= 0.6;
+                        break;
+                    case "Dark_Missionary":
+                        adjustedDamage *= damageType === "magical" ? 0.9 : 0.95;
+                        break;
+                    case "Shield_Samba":
+                        adjustedDamage *= 0.85;
+                        break;
+                    case "Fey_Illumination_sch":
+                        adjustedDamage *= 0.95;
+                        break;
+                    case "Sacred_Soil":
+                        adjustedDamage *= 0.9;
+                        break;
+                    case "Expedient":
+                        adjustedDamage *= 0.9;
+                        break;
+                    case "Addle":
+                        adjustedDamage *= damageType === "magical" ? 0.9 : 0.95;
+                        break;
+                    case "Feint":
+                        adjustedDamage *= damageType === "magical" ? 0.95 : 0.9;
+                        break;
+                    case "Aquaveil":
+                        adjustedDamage *= 0.9;
+                        break;
+                    case "Temperance":
+                        adjustedDamage *= 0.9;
+                        break;
+                    default:
+                        break;
+                }
             }
-        }
-    });
+        });
+    })
 
     // Update the damage taken for this row
     damageTaken = document.getElementById(`${skillName}-damage-taken`);
