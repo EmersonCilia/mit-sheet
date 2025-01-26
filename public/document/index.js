@@ -121,13 +121,11 @@ document.addEventListener("input", function (e) {
         const idParts = parentDiv.id.split("-");
         const skillName = idParts[0]; // e.g., "qweqwe" from "qweqwe-timer"
         let property;
-        console.log(skillName)
         let damageTotal = document.getElementById(`${skillName}-damage-total-textarea`)
         let timer =  document.getElementById(`${skillName}-timer-textarea`)
     
         let damageTaken = handleDamageReduction(damageTotal)
         // Dynamically update the database
-        console.log(skillName, damageTotal)
         property = idParts[1] === "timer" ?
             emitRowsValue({
                 documentName,
