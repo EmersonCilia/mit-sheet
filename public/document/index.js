@@ -89,7 +89,7 @@ function checkboxUpdater(checkboxId, damagetaken) {
     }
 }
 function typeUpdater(skillNameDiv, selectedType) {
-    const selectDiv = document.getElemntById(`${skillNameDiv}-type-select`);
+    const selectDiv = document.getElementById(`${skillNameDiv}-type-select`);
     if (selectDiv) {
         selectDiv.value = selectedType;
     }
