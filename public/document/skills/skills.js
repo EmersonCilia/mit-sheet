@@ -44,7 +44,7 @@ export default function handleDamageReduction(event) {
         "Addle", "Feint", "Aquaveil", "Temperance"
     ];
     const players = [
-        'Dan', 'Carmen', 'Cilia', 'Zedd', 'Ruh', 'Rah', 'Skye', 'Jorgen'
+        'Kanye', 'Carmen', 'Cilia', 'Zedd', 'Ruh', 'Rah', 'Skye', 'Jorgen'
     ]
 
     let adjustedDamage = parseFloat(damagetotalSkill.value);
