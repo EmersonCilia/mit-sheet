@@ -123,8 +123,9 @@ document.addEventListener("input", function (e) {
         let property;
         let damageTotal = document.getElementById(`${skillName}-damage-total-textarea`)
         let timer =  document.getElementById(`${skillName}-timer-textarea`)
-    
-        let damageTaken = handleDamageReduction(damageTotal)
+        
+        let damageTaken = handleDamageReduction(damageTotal);
+
         // Dynamically update the database
         property = idParts[1] === "timer" ?
             emitRowsValue({
@@ -132,14 +133,14 @@ document.addEventListener("input", function (e) {
                 skillNameInput: skillName,
                 timer: newValue,
                 damagetotal: damageTotal.value,
-                damagetaken: damageTaken.toFixed(1)
+                damagetaken: Math.floor(damageTaken + 1)
             }) :
             (emitRowsValue({
                 documentName,
                 skillNameInput: skillName,
                 timer: timer.value,
                 damagetotal: newValue,
-                damagetaken: damageTaken.toFixed(1)
+                damagetaken: Math.floor(damageTaken + 1)
             })
         )
     }
@@ -178,12 +179,13 @@ document.addEventListener('click', function (event) {
         if (checkbox.checked) {
             checkbox.setAttribute('checked', 'checked'); // Dynamically add the 'checked' attribute
             let checked = true
-            const damagetaken = handleDamageReduction(event)
+            const damagetaken =  Math.floor(handleDamageReduction(event) + 1)
             emitCheckboxValue(checkbox.id, skillNameInput, checked, damagetaken)
         } else {
             checkbox.removeAttribute('checked'); // Remove the 'checked' attribute when unchecked
             let checked = false;
-            const damagetaken = handleDamageReduction(event)
+            const damagetaken = Math.floor(handleDamageReduction(event) + 1)
+            
             emitCheckboxValue(checkbox.id, skillNameInput, checked, damagetaken);
         }
     }
@@ -205,7 +207,6 @@ documentDeleteBtn.addEventListener("click", () => {
         emitDeleteDocument(documentName);
     }
 });
-
 
 document.addEventListener("click", (event) => {
     if (event.target.closest(".trash-can")) {
