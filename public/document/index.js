@@ -152,7 +152,7 @@ document.getElementById('form-add-new-skill').addEventListener('submit', functio
     const skillNameInputValue = skillName.value
     const timer = document.getElementById(`${skillNameInputValue}-timer`)
     const damagetotal = document.getElementById(`${skillNameInputValue}-damage-total`)
-    const damageTaken = document.getAnimations(`${skillNameInputValue}--damage-taken`).innerHTML
+    const damageTaken = Math.floor(document.getAnimations(`${skillNameInputValue}--damage-taken`).innerHTML) + 1
 
     let addskillResult = addSkillRow(skillNameInputValue, spreadSheet);
     if (addskillResult === "stop") {
@@ -164,7 +164,7 @@ document.getElementById('form-add-new-skill').addEventListener('submit', functio
         skillNameInput: skillNameInputValue,
         timer,
         damagetotal,
-        damageTaken + 1
+        damageTaken
     });
 });
 
