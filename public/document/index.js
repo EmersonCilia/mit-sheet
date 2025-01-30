@@ -164,7 +164,7 @@ document.getElementById('form-add-new-skill').addEventListener('submit', functio
         skillNameInput: skillNameInputValue,
         timer,
         damagetotal,
-        damageTaken
+        Math.floor(damageTaken + 1)
     });
 });
 
