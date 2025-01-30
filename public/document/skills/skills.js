@@ -118,7 +118,7 @@ export default function handleDamageReduction(event) {
 
     // Update the damage taken for this row
     damageTaken = document.getElementById(`${skillName}-damage-taken`);
-    damageTaken.innerHTML = Math.floor(adjustedDamage + 1);
+    damageTaken.innerHTML = Math.floor(adjustedDamage);
 
     return !isNaN(adjustedDamage) ? adjustedDamage : "";
 }
