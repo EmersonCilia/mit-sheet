@@ -46,7 +46,7 @@ function updateSkillText(data) {
     const skillname = data[skillNameInput].skillname;
     let damagetotal = data[skillNameInput].damagetotal;
     let timer = data[skillNameInput].timer;
-    let damagetaken = data[skillNameInput].damagetaken;
+    let damagetaken = Math.floor(data[skillNameInput].damagetaken);
     const skillNameDiv = document.getElementById(`${skillname}-skill`);
     if (!skillNameDiv) {
         // If skill row doesn't exist, add it
@@ -133,14 +133,14 @@ document.addEventListener("input", function (e) {
                 skillNameInput: skillName,
                 timer: newValue,
                 damagetotal: damageTotal.value,
-                damagetaken: Math.floor(damageTaken + 1)
+                damagetaken: Math.floor(damageTaken)
             }) :
             (emitRowsValue({
                 documentName,
                 skillNameInput: skillName,
                 timer: timer.value,
                 damagetotal: newValue,
-                damagetaken: Math.floor(damageTaken + 1)
+                damagetaken: Math.floor(damageTaken)
             })
         )
     }
@@ -179,12 +179,12 @@ document.addEventListener('click', function (event) {
         if (checkbox.checked) {
             checkbox.setAttribute('checked', 'checked'); // Dynamically add the 'checked' attribute
             let checked = true
-            const damagetaken =  Math.floor(handleDamageReduction(event) + 1)
+            const damagetaken =  Math.floor(handleDamageReduction(event))
             emitCheckboxValue(checkbox.id, skillNameInput, checked, damagetaken)
         } else {
             checkbox.removeAttribute('checked'); // Remove the 'checked' attribute when unchecked
             let checked = false;
-            const damagetaken = Math.floor(handleDamageReduction(event) + 1)
+            const damagetaken = Math.floor(handleDamageReduction(event))
             
             emitCheckboxValue(checkbox.id, skillNameInput, checked, damagetaken);
         }
