@@ -41,10 +41,10 @@ export default function handleDamageReduction(event) {
         "Reprisal", "Rampart", "Heart_of_Corundum", "Great_Nebula", "Heart_of_Light",
         "Camouflage", "Dark_Mind", "Oblation", "Shadowed_Vigil",
         "Dark_Missionary", "Shield_Samba", "Fey_Illumination_sch", "Sacred_Soil", "Expedient",
-        "Addle", "Feint", "Aquaveil", "Temperance"
+        "Addle", "Feint", "Aquaveil", "Temperance","Taurochole","Holos", "Kerachole", "Guardian", "Holy_Sheltron", "Bulwark", "Passage_of_Arms"
     ];
     const players = [
-        'Kanye', 'Carmen', 'Cilia', 'Zedd', 'Ruh', 'Rah', 'Skye', 'Jorgen'
+        'Carmen', 'Jorgen', 'Cilia', 'Zedd', 'Ruh', 'Mystic', 'Skye', 'Nathe'
     ]
 
     let adjustedDamage = parseFloat(damagetotalSkill.value);
@@ -108,6 +108,27 @@ export default function handleDamageReduction(event) {
                         break;
                     case "Temperance":
                         adjustedDamage *= 0.9;
+                        break;
+                    case "Taurochole":
+                        adjustedDamage *= 0.9;
+                        break;
+                    case "Holos":
+                        adjustedDamage *= 0.9;
+                        break;
+                    case "Kerachole":
+                        adjustedDamage *= 0.9;
+                        break;
+                    case "Guardian":
+                        adjustedDamage *= 0.6;
+                        break;
+                    case "Holy_Sheltron":
+                        adjustedDamage *= 0.9;
+                        break;
+                    case "Bulwark":
+                        adjustedDamage *= 0.80;
+                        break;
+                    case "Passage_of_Arms":
+                        adjustedDamage *= 0.85;
                         break;
                     default:
                         break;
