@@ -1,0 +1,1 @@
+Mitsheet é uma aplicação web em tempo real que utiliza Socket.io para comunicação entre cliente e servidor, com persistência de dados em MongoDB. Permite que múltiplos usuários interajam simultaneamente em uma planilha ou ambiente colaborativo. 
